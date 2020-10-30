@@ -2,13 +2,11 @@
 title: API Reference
 
 language_tabs: # must be one of https://git.io/vQNgJ
-  - shell
-  - ruby
   - python
   - javascript
+  - go
 
 toc_footers:
-  - <a href='#'>Sign Up for a Developer Key</a>
   - <a href='https://github.com/slatedocs/slate'>Documentation Powered by Slate</a>
 
 includes:
@@ -21,11 +19,10 @@ code_clipboard: true
 
 # Introduction
 
-Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.
+Welcome to the poe.watch API! You can use our API to access poe.watch API endpoints.
 
 We have language bindings in Shell, Ruby, Python, and JavaScript! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
 
-This example API documentation page was created with [Slate](https://github.com/slatedocs/slate). Feel free to edit it and use it as a base for your own API's documentation.
 
 # Authentication
 
@@ -67,28 +64,9 @@ Kittn expects for the API key to be included in all API requests to the server i
 You must replace <code>meowmeowmeow</code> with your personal API key.
 </aside>
 
-# Kittens
+# Get
 
-## Get All Kittens
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get()
-```
-
-```shell
-curl "http://example.com/api/kittens" \
-  -H "Authorization: meowmeowmeow"
-```
+## Get all armours
 
 ```javascript
 const kittn = require('kittn');
@@ -100,142 +78,24 @@ let kittens = api.kittens.get();
 > The above command returns JSON structured like this:
 
 ```json
-[
-  {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
-  {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
-  }
-]
+[{"id":6,"name":"Wreath of Phrecia","category":"armour","group":"helmets","frame":3,"influences":null,"linkCount":0,"icon":"https://web.poecdn.com/image/Art/2DItems/Armours/Helmets/Wreath_of_Phrecia.png?v=0557bfae422aebfaa3ac32bee72fe98e\u0026w=2\u0026h=2\u0026scale=1","mean":13.2,"mode":0,"min":1.6,"max":13.2,"exalted":0.16,"total":0,"daily":169,"current":0,"accepted":0,"change":214,"history":[2.78,1.95,3.75,3.5,4.85,4.42,8.2],"lowConfidence":false,"perfectPrice":10.28,"perfectAmount":0,"implicits":null,"explicits":["Has no Attribute Requirements","Increases and Reductions to Light Radius also apply to Area of Effect at 50% of their value","Increases and Reductions to Light Radius also apply to Damage","(15-25)% increased Light Radius","Deal no Chaos Damage"]},{"id":9,"name":"Rainbowstride","category":"armour","group":"boots","frame":3,"influences":null,"linkCount":0,"icon":"https://web.poecdn.com/image/Art/2DItems/Armours/Boots/rainbowstride.png?v=d24bcacbebe0317035b25ecea7a21776\u0026w=2\u0026h=2\u0026scale=1","mean":2.24,"mode":0,"min":2.21,"max":2.29,"exalted":0.03,"total":0,"daily":5634,"current":0,"accepted":0,"change":-36,"history":[3.85,3.32,3.23,3.6,3.58,3.56,3.36],"lowConfidence":false,"perfectPrice":17.08,"perfectAmount":0,"implicits":null,"explicits":["(4-6)% Chance to Block Spell Damage","(140-180)% increased Energy Shield","+(40-60) to maximum Mana","+20% to all Elemental Resistances","25% increased Movement Speed"]}]
 ```
 
 This endpoint retrieves all kittens.
 
 ### HTTP Request
 
-`GET http://example.com/api/kittens`
+`GET https://api.poe.watch/get?category=armour&league=Heist`
 
 ### Query Parameters
 
 Parameter | Default | Description
 --------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
+category | false | set to the wanted category
+league | true | set the wanted league
 
 <aside class="success">
-Remember — a happy kitten is an authenticated kitten!
+Remember — on this endpoint only current leagues are working. For older ones use the history endpoint.
 </aside>
 
-## Get a Specific Kitten
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```shell
-curl "http://example.com/api/kittens/2" \
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.get(2);
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-  "id": 2,
-  "name": "Max",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
-}
-```
-
-This endpoint retrieves a specific kitten.
-
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
-
-### HTTP Request
-
-`GET http://example.com/kittens/<ID>`
-
-### URL Parameters
-
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to retrieve
-
-## Delete a Specific Kitten
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.delete(2)
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.delete(2)
-```
-
-```shell
-curl "http://example.com/api/kittens/2" \
-  -X DELETE \
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.delete(2);
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-  "id": 2,
-  "deleted" : ":("
-}
-```
-
-This endpoint deletes a specific kitten.
-
-### HTTP Request
-
-`DELETE http://example.com/kittens/<ID>`
-
-### URL Parameters
-
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to delete
 
