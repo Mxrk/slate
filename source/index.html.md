@@ -170,7 +170,10 @@ league | string | set the wanted league
 Remember — on this endpoint only current leagues are working. For older ones use the history endpoint.
 </aside>
 
-## Categories
+## Get all x
+It's exactly like the endpoints above, just use a valid category from the categories endpoint.
+
+### Categories
 This endpoint is used to get all valid categories you can use for the other endpoints.
 
 ```go
@@ -193,7 +196,7 @@ fmt.Println(categories)
 
 
 
-## Leagues
+### Leagues
 This endpoint is used to get all valid leagues you can use for the other endpoints.
 
 ```go
@@ -216,7 +219,7 @@ fmt.Println(leagues)
 
 
 
-## History
+### History
 This endpoint is used to get history data for items in a certain league. 
 
 <aside class="notice">
@@ -241,3 +244,125 @@ fmt.Println(history)
 
 `GET https://api.poe.watch/history?id=48&league=Heist`
 
+### Query Parameters
+
+Parameter | Type | Description
+--------- | ------- | -----------
+id | int | wanted item id
+league | string | set the wanted league
+
+
+### Enchant
+This endpoint is used to get enchat data for a specific item in a certain league. 
+
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  {
+    "name": "Penance Brand has 24% increased Area of Effect",
+    "value": 34.38,
+    "lowConfidence": true
+  },
+  {
+    "name": "Sunder has 40% increased Damage",
+    "value": 2.29,
+    "lowConfidence": true
+  }
+]
+```
+
+
+### HTTP Request
+
+`GET https://api.poe.watch/enchants?id=79&league=Heist`
+
+### Query Parameters
+
+Parameter | Type | Description
+--------- | ------- | -----------
+id | int | wanted item id
+league | string | set the wanted league
+
+### Compact
+Returns a compact data from all "get?" endpoints combined.
+
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "items": [
+    {
+      "id": 48,
+      "name": "Devouring Totem",
+      "category": "",
+      "group": "",
+      "frame": 4,
+      "influences": null,
+      "icon": "https://web.poecdn.com/image/Art/2DItems/Gems/DevouringTotem.png?v=f056a6f62ebac73b19eb9baa93ffef16&w=1&h=1&scale=1",
+      "mean": 10.14,
+      "mode": 0,
+      "min": 10.14,
+      "max": 10.14,
+      "exalted": 0.14,
+      "total": 0,
+      "daily": 156,
+      "current": 0,
+      "accepted": 0,
+      "change": 119,
+      "history": [
+        4.14,
+        3.45,
+        3.66,
+        3.97,
+        3.98,
+        3.62,
+        2.7
+      ],
+      "lowConfidence": false,
+      "implicits": null,
+      "explicits": null,
+      "gemLevel": 21,
+      "gemQuality": 23,
+      "gemIsCorrupted": true,
+      "essenceTier": 0,
+      "watchstonesUses": 0,
+      "linkCount": 0,
+      "mapSeries": 0,
+      "mapTier": 0
+    }
+  ]
+}
+```
+
+
+### HTTP Request
+
+`GET https://api.poe.watch/compact?league=Heist`
+
+### Query Parameters
+
+Parameter | Type | Description
+--------- | ------- | -----------
+league | string | set the wanted league
+
+### Stash
+This endpoint returns the latest stash ID and the computed stashes in the current iteration (not really useful for other people.)
+
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "changeID": "863692164-876193549-838143009-945188005-904612949",
+  "requestedStashes": 31739,
+  "computedStashes": 31736
+}
+```
+
+
+### HTTP Request
+
+`GET https://api.poe.watch/status`
