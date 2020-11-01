@@ -288,7 +288,7 @@
     </script>
   </head>
 
-  <body class="index" data-languages="[&quot;python&quot;,&quot;javascript&quot;,&quot;go&quot;]">
+  <body class="index" data-languages="[&quot;go&quot;,&quot;shell&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -298,9 +298,8 @@
     <div class="toc-wrapper">
       <img src="images/logo-1e815a84.png" class="logo" alt="" />
         <div class="lang-selector">
-              <a href="#" data-language-name="python">python</a>
-              <a href="#" data-language-name="javascript">javascript</a>
               <a href="#" data-language-name="go">go</a>
+              <a href="#" data-language-name="shell">shell</a>
         </div>
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
@@ -398,7 +397,8 @@
 <p>I have language bindings for Python and Go! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
 <h1 id='get'>Get</h1>
 <p>The get endpoint always needs a valid category. More about valid categories in the category section.</p>
-<h2 id='get-all-armours'>Get all armours</h2><div class="highlight"><pre class="highlight go tab-go"><code><span class="k">import</span> <span class="n">poe</span> <span class="s">"github.com/mxrk/poewatch"</span>
+<h2 id='get-all-armours'>Get all armours</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>    curl https://api.poe.watch/get?category<span class="o">=</span>armour&amp;league<span class="o">=</span>Heist
+</code></pre></div><div class="highlight"><pre class="highlight go tab-go"><code><span class="k">import</span> <span class="n">poe</span> <span class="s">"github.com/mxrk/poewatch"</span>
 
 <span class="n">items</span> <span class="o">:=</span> <span class="n">poe</span><span class="o">.</span><span class="n">GetItems</span><span class="p">(</span><span class="s">"Heist"</span><span class="p">,</span> <span class="s">"armour"</span><span class="p">)</span>
 <span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="n">items</span><span class="p">)</span>
@@ -473,7 +473,8 @@
 <aside class="success">
 Remember — on this endpoint only current leagues are working. For older ones use the history endpoint.
 </aside>
-<h2 id='get-all-weapons'>Get all weapons</h2><div class="highlight"><pre class="highlight go tab-go"><code><span class="k">import</span> <span class="n">poe</span> <span class="s">"github.com/mxrk/poewatch"</span>
+<h2 id='get-all-weapons'>Get all weapons</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>    curl https://api.poe.watch/get?category<span class="o">=</span>waepon&amp;league<span class="o">=</span>Heist
+</code></pre></div><div class="highlight"><pre class="highlight go tab-go"><code><span class="k">import</span> <span class="n">poe</span> <span class="s">"github.com/mxrk/poewatch"</span>
 
 <span class="n">items</span> <span class="o">:=</span> <span class="n">poe</span><span class="o">.</span><span class="n">GetItems</span><span class="p">(</span><span class="s">"Heist"</span><span class="p">,</span> <span class="s">"weapons"</span><span class="p">)</span>
 <span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="n">items</span><span class="p">)</span>
@@ -551,7 +552,8 @@ Remember — on this endpoint only current leagues are working. For older ones u
 <p>It&#39;s exactly like the endpoints above, just use a valid category from the categories endpoint.</p>
 <h1 id='categories'>Categories</h1>
 <p>This endpoint is used to get all valid categories you can use for the other endpoints.</p>
-<div class="highlight"><pre class="highlight go tab-go"><code><span class="k">import</span> <span class="n">poe</span> <span class="s">"github.com/mxrk/poewatch"</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>    curl https://api.poe.watch/categories
+</code></pre></div><div class="highlight"><pre class="highlight go tab-go"><code><span class="k">import</span> <span class="n">poe</span> <span class="s">"github.com/mxrk/poewatch"</span>
 
 <span class="n">categories</span> <span class="o">:=</span> <span class="n">poe</span><span class="o">.</span><span class="n">GetCategories</span><span class="p">()</span>
 <span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="n">categories</span><span class="p">)</span>
@@ -564,7 +566,8 @@ Remember — on this endpoint only current leagues are working. For older ones u
 <p><code>GET https://api.poe.watch/categories</code></p>
 <h1 id='leagues'>Leagues</h1>
 <p>This endpoint is used to get all valid leagues you can use for the other endpoints.</p>
-<div class="highlight"><pre class="highlight go tab-go"><code><span class="k">import</span> <span class="n">poe</span> <span class="s">"github.com/mxrk/poewatch"</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>    curl https://api.poe.watch/leagues
+</code></pre></div><div class="highlight"><pre class="highlight go tab-go"><code><span class="k">import</span> <span class="n">poe</span> <span class="s">"github.com/mxrk/poewatch"</span>
 
 <span class="n">leagues</span> <span class="o">:=</span> <span class="n">poe</span><span class="o">.</span><span class="n">GetLeagues</span><span class="p">()</span>
 <span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="n">leagues</span><span class="p">)</span>
@@ -581,7 +584,8 @@ Remember — on this endpoint only current leagues are working. For older ones u
 <aside class="notice">
 Remember — you can also check data from old leagues. If you want to see which leagues are supported, check the ... endpoint.
 </aside>
-<div class="highlight"><pre class="highlight go tab-go"><code><span class="k">import</span> <span class="n">poe</span> <span class="s">"github.com/mxrk/poewatch"</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>    curl https://api.poe.watch/history?id<span class="o">=</span>48&amp;league<span class="o">=</span>Heist
+</code></pre></div><div class="highlight"><pre class="highlight go tab-go"><code><span class="k">import</span> <span class="n">poe</span> <span class="s">"github.com/mxrk/poewatch"</span>
 
 <span class="n">history</span> <span class="o">:=</span> <span class="n">poe</span><span class="o">.</span><span class="n">GetItemHistory</span><span class="p">(</span><span class="m">48</span><span class="p">,</span> <span class="s">"Heist"</span><span class="p">)</span>
 <span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="n">history</span><span class="p">)</span>
@@ -613,7 +617,8 @@ Remember — you can also check data from old leagues. If you want to see which 
 </tbody></table>
 <h1 id='enchant'>Enchant</h1>
 <p>This endpoint is used to get enchat data for a specific item in a certain league. </p>
-
+<div class="highlight"><pre class="highlight shell tab-shell"><code>    curl https://api.poe.watch/enchants?id<span class="o">=</span>79&amp;league<span class="o">=</span>Heist
+</code></pre></div>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
@@ -652,7 +657,8 @@ Remember — you can also check data from old leagues. If you want to see which 
 </tbody></table>
 <h1 id='compact'>Compact</h1>
 <p>Returns a compact data from all &quot;get?&quot; endpoints combined.</p>
-
+<div class="highlight"><pre class="highlight shell tab-shell"><code>    curl https://api.poe.watch/compact?league<span class="o">=</span>Heist
+</code></pre></div>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
@@ -717,7 +723,8 @@ Remember — you can also check data from old leagues. If you want to see which 
 </tbody></table>
 <h1 id='stash'>Stash</h1>
 <p>This endpoint returns the latest stash ID and the computed stashes in the current iteration (not really useful for other people.)</p>
-
+<div class="highlight"><pre class="highlight shell tab-shell"><code>    curl https://api.poe.watch/status
+</code></pre></div>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
@@ -790,9 +797,8 @@ This error section is stored in a separate file in <code>includes/_errors.md</co
       </div>
       <div class="dark-box">
           <div class="lang-selector">
-                <a href="#" data-language-name="python">python</a>
-                <a href="#" data-language-name="javascript">javascript</a>
                 <a href="#" data-language-name="go">go</a>
+                <a href="#" data-language-name="shell">shell</a>
           </div>
       </div>
     </div>
