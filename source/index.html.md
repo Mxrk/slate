@@ -2,9 +2,8 @@
 title: API Reference
 
 language_tabs: # must be one of https://git.io/vQNgJ
-  - python
-  - javascript
   - go
+  - shell
 
 toc_footers:
   - <a href='https://github.com/slatedocs/slate'>Documentation Powered by Slate</a>
@@ -28,6 +27,9 @@ I have language bindings for Python and Go! You can view code examples in the da
 The get endpoint always needs a valid category. More about valid categories in the category section.
 
 ## Get all armours
+ ```shell
+    curl https://api.poe.watch/get?category=armour&league=Heist
+ ```
 
 ```go
 import poe "github.com/mxrk/poewatch"
@@ -100,6 +102,11 @@ Remember — on this endpoint only current leagues are working. For older ones u
 </aside>
 
 ## Get all weapons
+
+ ```shell
+    curl https://api.poe.watch/get?category=waepon&league=Heist
+ ```
+
 
 ```go
 import poe "github.com/mxrk/poewatch"
@@ -176,6 +183,10 @@ It's exactly like the endpoints above, just use a valid category from the catego
 # Categories
 This endpoint is used to get all valid categories you can use for the other endpoints.
 
+ ```shell
+    curl https://api.poe.watch/categories
+ ```
+
 ```go
 import poe "github.com/mxrk/poewatch"
 
@@ -198,6 +209,10 @@ fmt.Println(categories)
 
 # Leagues
 This endpoint is used to get all valid leagues you can use for the other endpoints.
+
+ ```shell
+    curl https://api.poe.watch/leagues
+ ```
 
 ```go
 import poe "github.com/mxrk/poewatch"
@@ -225,6 +240,11 @@ This endpoint is used to get history data for items in a certain league.
 <aside class="notice">
 Remember — you can also check data from old leagues. If you want to see which leagues are supported, check the ... endpoint.
 </aside>
+
+ ```shell
+    curl https://api.poe.watch/history?id=48&league=Heist
+ ```
+
 
 ```go
 import poe "github.com/mxrk/poewatch"
@@ -255,6 +275,9 @@ league | string | set the wanted league
 # Enchant
 This endpoint is used to get enchat data for a specific item in a certain league. 
 
+```shell
+    curl https://api.poe.watch/enchants?id=79&league=Heist
+ ```
 
 > The above command returns JSON structured like this:
 
@@ -288,6 +311,9 @@ league | string | set the wanted league
 # Compact
 Returns a compact data from all "get?" endpoints combined.
 
+```shell
+    curl https://api.poe.watch/compact?league=Heist
+ ```
 
 > The above command returns JSON structured like this:
 
@@ -351,6 +377,9 @@ league | string | set the wanted league
 # Stash
 This endpoint returns the latest stash ID and the computed stashes in the current iteration (not really useful for other people.)
 
+```shell
+    curl https://api.poe.watch/status
+ ```
 
 > The above command returns JSON structured like this:
 
