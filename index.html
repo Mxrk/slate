@@ -320,13 +320,7 @@
                     <a href="#get-all-weapons" class="toc-h2 toc-link" data-title="Get all weapons">Get all weapons</a>
                   </li>
                   <li>
-                    <a href="#categories" class="toc-h2 toc-link" data-title="Categories">Categories</a>
-                  </li>
-                  <li>
-                    <a href="#leagues" class="toc-h2 toc-link" data-title="Leagues">Leagues</a>
-                  </li>
-                  <li>
-                    <a href="#history" class="toc-h2 toc-link" data-title="History">History</a>
+                    <a href="#get-all-x" class="toc-h2 toc-link" data-title="Get all x">Get all x</a>
                   </li>
               </ul>
           </li>
@@ -496,7 +490,9 @@ Remember — on this endpoint only current leagues are working. For older ones u
 <aside class="success">
 Remember — on this endpoint only current leagues are working. For older ones use the history endpoint.
 </aside>
-<h2 id='categories'>Categories</h2>
+<h2 id='get-all-x'>Get all x</h2>
+<p>It&#39;s exactly like the endpoints above, just use a valid category from the categories endpoint.</p>
+<h3 id='categories'>Categories</h3>
 <p>This endpoint is used to get all valid categories you can use for the other endpoints.</p>
 <div class="highlight"><pre class="highlight go tab-go"><code><span class="k">import</span> <span class="n">poe</span> <span class="s">"github.com/mxrk/poewatch"</span>
 
@@ -509,7 +505,7 @@ Remember — on this endpoint only current leagues are working. For older ones u
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[{</span><span class="nl">"id"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="nl">"name"</span><span class="p">:</span><span class="s2">"accessory"</span><span class="p">,</span><span class="nl">"display"</span><span class="p">:</span><span class="s2">"Accessories"</span><span class="p">,</span><span class="nl">"groups"</span><span class="p">:[]},{</span><span class="nl">"id"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="nl">"name"</span><span class="p">:</span><span class="s2">"armour"</span><span class="p">,</span><span class="nl">"display"</span><span class="p">:</span><span class="s2">"Armour"</span><span class="p">,</span><span class="nl">"groups"</span><span class="p">:[]}]</span><span class="w">
 </span></code></pre></div><h3 id='http-request-3'>HTTP Request</h3>
 <p><code>GET https://api.poe.watch/categories</code></p>
-<h2 id='leagues'>Leagues</h2>
+<h3 id='leagues'>Leagues</h3>
 <p>This endpoint is used to get all valid leagues you can use for the other endpoints.</p>
 <div class="highlight"><pre class="highlight go tab-go"><code><span class="k">import</span> <span class="n">poe</span> <span class="s">"github.com/mxrk/poewatch"</span>
 
@@ -522,7 +518,7 @@ Remember — on this endpoint only current leagues are working. For older ones u
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[{</span><span class="nl">"name"</span><span class="p">:</span><span class="s2">"Standard"</span><span class="p">,</span><span class="nl">"start_date"</span><span class="p">:</span><span class="s2">"2013-01-23T21:00:00+01:00"</span><span class="p">,</span><span class="nl">"end_date"</span><span class="p">:</span><span class="s2">"0001-01-01T00:00:00Z"</span><span class="p">},{</span><span class="nl">"name"</span><span class="p">:</span><span class="s2">"Hardcore"</span><span class="p">,</span><span class="nl">"start_date"</span><span class="p">:</span><span class="s2">"2013-01-23T22:00:00+01:00"</span><span class="p">,</span><span class="nl">"end_date"</span><span class="p">:</span><span class="s2">"0001-01-01T00:00:00Z"</span><span class="p">}]</span><span class="w">
 </span></code></pre></div><h3 id='http-request-4'>HTTP Request</h3>
 <p><code>GET https://api.poe.watch/leagues</code></p>
-<h2 id='history'>History</h2>
+<h3 id='history'>History</h3>
 <p>This endpoint is used to get history data for items in a certain league. </p>
 
 <aside class="notice">
@@ -539,6 +535,142 @@ Remember — you can also check data from old leagues. If you want to see which 
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[{</span><span class="nl">"mean"</span><span class="p">:</span><span class="mf">8.87</span><span class="p">,</span><span class="nl">"date"</span><span class="p">:</span><span class="s2">"2020-09-18T22:01:23.89+02:00"</span><span class="p">,</span><span class="nl">"id"</span><span class="p">:</span><span class="mi">0</span><span class="p">},{</span><span class="nl">"mean"</span><span class="p">:</span><span class="mf">2.31</span><span class="p">,</span><span class="nl">"date"</span><span class="p">:</span><span class="s2">"2020-09-19T22:59:09.749+02:00"</span><span class="p">,</span><span class="nl">"id"</span><span class="p">:</span><span class="mi">0</span><span class="p">},{</span><span class="nl">"mean"</span><span class="p">:</span><span class="mf">2.22</span><span class="p">,</span><span class="nl">"date"</span><span class="p">:</span><span class="s2">"2020-09-20T23:09:27.687+02:00"</span><span class="p">,</span><span class="nl">"id"</span><span class="p">:</span><span class="mi">0</span><span class="p">},{</span><span class="nl">"mean"</span><span class="p">:</span><span class="mf">2.17</span><span class="p">,</span><span class="nl">"date"</span><span class="p">:</span><span class="s2">"2020-09-21T23:59:33.591+02:00"</span><span class="p">,</span><span class="nl">"id"</span><span class="p">:</span><span class="mi">0</span><span class="p">}]</span><span class="w">
 </span></code></pre></div><h3 id='http-request-5'>HTTP Request</h3>
 <p><code>GET https://api.poe.watch/history?id=48&amp;league=Heist</code></p>
+<h3 id='query-parameters-3'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>int</td>
+<td>wanted item id</td>
+</tr>
+<tr>
+<td>league</td>
+<td>string</td>
+<td>set the wanted league</td>
+</tr>
+</tbody></table>
+<h3 id='enchant'>Enchant</h3>
+<p>This endpoint is used to get enchat data for a specific item in a certain league. </p>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Penance Brand has 24% increased Area of Effect"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="mf">34.38</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"lowConfidence"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sunder has 40% increased Damage"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="mf">2.29</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"lowConfidence"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div><h3 id='http-request-6'>HTTP Request</h3>
+<p><code>GET https://api.poe.watch/enchants?id=79&amp;league=Heist</code></p>
+<h3 id='query-parameters-4'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>int</td>
+<td>wanted item id</td>
+</tr>
+<tr>
+<td>league</td>
+<td>string</td>
+<td>set the wanted league</td>
+</tr>
+</tbody></table>
+<h3 id='compact'>Compact</h3>
+<p>Returns a compact data from all &quot;get?&quot; endpoints combined.</p>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">48</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Devouring Totem"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"group"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"frame"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"influences"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"icon"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://web.poecdn.com/image/Art/2DItems/Gems/DevouringTotem.png?v=f056a6f62ebac73b19eb9baa93ffef16&amp;w=1&amp;h=1&amp;scale=1"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"mean"</span><span class="p">:</span><span class="w"> </span><span class="mf">10.14</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"mode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"min"</span><span class="p">:</span><span class="w"> </span><span class="mf">10.14</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"max"</span><span class="p">:</span><span class="w"> </span><span class="mf">10.14</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"exalted"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.14</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"daily"</span><span class="p">:</span><span class="w"> </span><span class="mi">156</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"current"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"accepted"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"change"</span><span class="p">:</span><span class="w"> </span><span class="mi">119</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"history"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="mf">4.14</span><span class="p">,</span><span class="w">
+        </span><span class="mf">3.45</span><span class="p">,</span><span class="w">
+        </span><span class="mf">3.66</span><span class="p">,</span><span class="w">
+        </span><span class="mf">3.97</span><span class="p">,</span><span class="w">
+        </span><span class="mf">3.98</span><span class="p">,</span><span class="w">
+        </span><span class="mf">3.62</span><span class="p">,</span><span class="w">
+        </span><span class="mf">2.7</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nl">"lowConfidence"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"implicits"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"explicits"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"gemLevel"</span><span class="p">:</span><span class="w"> </span><span class="mi">21</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"gemQuality"</span><span class="p">:</span><span class="w"> </span><span class="mi">23</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"gemIsCorrupted"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"essenceTier"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"watchstonesUses"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"linkCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"mapSeries"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"mapTier"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='http-request-7'>HTTP Request</h3>
+<p><code>GET https://api.poe.watch/compact?league=Heist</code></p>
+<h3 id='query-parameters-5'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>league</td>
+<td>string</td>
+<td>set the wanted league</td>
+</tr>
+</tbody></table>
+<h3 id='stash'>Stash</h3>
+<p>This endpoint returns the latest stash ID and the computed stashes in the current iteration (not really useful for other people.)</p>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"changeID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"863692164-876193549-838143009-945188005-904612949"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"requestedStashes"</span><span class="p">:</span><span class="w"> </span><span class="mi">31739</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"computedStashes"</span><span class="p">:</span><span class="w"> </span><span class="mi">31736</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='http-request-8'>HTTP Request</h3>
+<p><code>GET https://api.poe.watch/status</code></p>
 <h1 id='errors'>Errors</h1>
 <aside class="notice">
 This error section is stored in a separate file in <code>includes/_errors.md</code>. Slate allows you to optionally separate out your docs into many files...just save them to the <code>includes</code> folder and add them to the top of your <code>index.md</code>'s frontmatter. Files are included in the order listed.
