@@ -173,7 +173,7 @@ Remember — on this endpoint only current leagues are working. For older ones u
 ## Get all x
 It's exactly like the endpoints above, just use a valid category from the categories endpoint.
 
-### Categories
+# Categories
 This endpoint is used to get all valid categories you can use for the other endpoints.
 
 ```go
@@ -196,7 +196,7 @@ fmt.Println(categories)
 
 
 
-### Leagues
+# Leagues
 This endpoint is used to get all valid leagues you can use for the other endpoints.
 
 ```go
@@ -219,7 +219,7 @@ fmt.Println(leagues)
 
 
 
-### History
+# History
 This endpoint is used to get history data for items in a certain league. 
 
 <aside class="notice">
@@ -252,7 +252,7 @@ id | int | wanted item id
 league | string | set the wanted league
 
 
-### Enchant
+# Enchant
 This endpoint is used to get enchat data for a specific item in a certain league. 
 
 
@@ -285,7 +285,7 @@ Parameter | Type | Description
 id | int | wanted item id
 league | string | set the wanted league
 
-### Compact
+# Compact
 Returns a compact data from all "get?" endpoints combined.
 
 
@@ -348,7 +348,7 @@ Parameter | Type | Description
 --------- | ------- | -----------
 league | string | set the wanted league
 
-### Stash
+# Stash
 This endpoint returns the latest stash ID and the computed stashes in the current iteration (not really useful for other people.)
 
 
