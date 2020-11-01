@@ -325,6 +325,63 @@
               </ul>
           </li>
           <li>
+            <a href="#categories" class="toc-h1 toc-link" data-title="Categories">Categories</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#http-request-3" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#leagues" class="toc-h1 toc-link" data-title="Leagues">Leagues</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#http-request-4" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#history" class="toc-h1 toc-link" data-title="History">History</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#http-request-5" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
+                  </li>
+                  <li>
+                    <a href="#query-parameters-3" class="toc-h2 toc-link" data-title="Query Parameters">Query Parameters</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#enchant" class="toc-h1 toc-link" data-title="Enchant">Enchant</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#http-request-6" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
+                  </li>
+                  <li>
+                    <a href="#query-parameters-4" class="toc-h2 toc-link" data-title="Query Parameters">Query Parameters</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#compact" class="toc-h1 toc-link" data-title="Compact">Compact</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#http-request-7" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
+                  </li>
+                  <li>
+                    <a href="#query-parameters-5" class="toc-h2 toc-link" data-title="Query Parameters">Query Parameters</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#stash" class="toc-h1 toc-link" data-title="Stash">Stash</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#http-request-8" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
           </li>
       </ul>
@@ -492,7 +549,7 @@ Remember — on this endpoint only current leagues are working. For older ones u
 </aside>
 <h2 id='get-all-x'>Get all x</h2>
 <p>It&#39;s exactly like the endpoints above, just use a valid category from the categories endpoint.</p>
-<h3 id='categories'>Categories</h3>
+<h1 id='categories'>Categories</h1>
 <p>This endpoint is used to get all valid categories you can use for the other endpoints.</p>
 <div class="highlight"><pre class="highlight go tab-go"><code><span class="k">import</span> <span class="n">poe</span> <span class="s">"github.com/mxrk/poewatch"</span>
 
@@ -505,7 +562,7 @@ Remember — on this endpoint only current leagues are working. For older ones u
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[{</span><span class="nl">"id"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="nl">"name"</span><span class="p">:</span><span class="s2">"accessory"</span><span class="p">,</span><span class="nl">"display"</span><span class="p">:</span><span class="s2">"Accessories"</span><span class="p">,</span><span class="nl">"groups"</span><span class="p">:[]},{</span><span class="nl">"id"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="nl">"name"</span><span class="p">:</span><span class="s2">"armour"</span><span class="p">,</span><span class="nl">"display"</span><span class="p">:</span><span class="s2">"Armour"</span><span class="p">,</span><span class="nl">"groups"</span><span class="p">:[]}]</span><span class="w">
 </span></code></pre></div><h3 id='http-request-3'>HTTP Request</h3>
 <p><code>GET https://api.poe.watch/categories</code></p>
-<h3 id='leagues'>Leagues</h3>
+<h1 id='leagues'>Leagues</h1>
 <p>This endpoint is used to get all valid leagues you can use for the other endpoints.</p>
 <div class="highlight"><pre class="highlight go tab-go"><code><span class="k">import</span> <span class="n">poe</span> <span class="s">"github.com/mxrk/poewatch"</span>
 
@@ -518,7 +575,7 @@ Remember — on this endpoint only current leagues are working. For older ones u
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[{</span><span class="nl">"name"</span><span class="p">:</span><span class="s2">"Standard"</span><span class="p">,</span><span class="nl">"start_date"</span><span class="p">:</span><span class="s2">"2013-01-23T21:00:00+01:00"</span><span class="p">,</span><span class="nl">"end_date"</span><span class="p">:</span><span class="s2">"0001-01-01T00:00:00Z"</span><span class="p">},{</span><span class="nl">"name"</span><span class="p">:</span><span class="s2">"Hardcore"</span><span class="p">,</span><span class="nl">"start_date"</span><span class="p">:</span><span class="s2">"2013-01-23T22:00:00+01:00"</span><span class="p">,</span><span class="nl">"end_date"</span><span class="p">:</span><span class="s2">"0001-01-01T00:00:00Z"</span><span class="p">}]</span><span class="w">
 </span></code></pre></div><h3 id='http-request-4'>HTTP Request</h3>
 <p><code>GET https://api.poe.watch/leagues</code></p>
-<h3 id='history'>History</h3>
+<h1 id='history'>History</h1>
 <p>This endpoint is used to get history data for items in a certain league. </p>
 
 <aside class="notice">
@@ -554,7 +611,7 @@ Remember — you can also check data from old leagues. If you want to see which 
 <td>set the wanted league</td>
 </tr>
 </tbody></table>
-<h3 id='enchant'>Enchant</h3>
+<h1 id='enchant'>Enchant</h1>
 <p>This endpoint is used to get enchat data for a specific item in a certain league. </p>
 
 <blockquote>
@@ -593,7 +650,7 @@ Remember — you can also check data from old leagues. If you want to see which 
 <td>set the wanted league</td>
 </tr>
 </tbody></table>
-<h3 id='compact'>Compact</h3>
+<h1 id='compact'>Compact</h1>
 <p>Returns a compact data from all &quot;get?&quot; endpoints combined.</p>
 
 <blockquote>
@@ -658,7 +715,7 @@ Remember — you can also check data from old leagues. If you want to see which 
 <td>set the wanted league</td>
 </tr>
 </tbody></table>
-<h3 id='stash'>Stash</h3>
+<h1 id='stash'>Stash</h1>
 <p>This endpoint returns the latest stash ID and the computed stashes in the current iteration (not really useful for other people.)</p>
 
 <blockquote>
