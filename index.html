@@ -321,6 +321,9 @@
                   <li>
                     <a href="#get-all-x" class="toc-h2 toc-link" data-title="Get all x">Get all x</a>
                   </li>
+                  <li>
+                    <a href="#filters" class="toc-h2 toc-link" data-title="Filters">Filters</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -362,7 +365,7 @@
               </ul>
           </li>
           <li>
-            <a href="#compact" class="toc-h1 toc-link" data-title="Compact">Compact</a>
+            <a href="#corruptions" class="toc-h1 toc-link" data-title="Corruptions">Corruptions</a>
               <ul class="toc-list-h2">
                   <li>
                     <a href="#http-request-7" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
@@ -373,10 +376,21 @@
               </ul>
           </li>
           <li>
-            <a href="#stash" class="toc-h1 toc-link" data-title="Stash">Stash</a>
+            <a href="#compact" class="toc-h1 toc-link" data-title="Compact">Compact</a>
               <ul class="toc-list-h2">
                   <li>
                     <a href="#http-request-8" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
+                  </li>
+                  <li>
+                    <a href="#query-parameters-6" class="toc-h2 toc-link" data-title="Query Parameters">Query Parameters</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#stash" class="toc-h1 toc-link" data-title="Stash">Stash</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#http-request-9" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
                   </li>
               </ul>
           </li>
@@ -550,7 +564,12 @@ Remember — on this endpoint only current leagues are working. For older ones u
 </aside>
 <h2 id='get-all-x'>Get all x</h2>
 <p>It&#39;s exactly like the endpoints above, just use a valid category from the categories endpoint.</p>
-<h1 id='categories'>Categories</h1>
+<h2 id='filters'>Filters</h2>
+<p>You can use specific filters to get filtered results on all get categories.
+Currently the following filters are available:
+&quot;gemLevel&quot;, &quot;gemCorrupted&quot;, &quot;lowConfidence&quot;, &quot;itemLevel&quot;, &quot;linkCount&quot;</p>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>    curl https://api.poe.watch/get?categories<span class="o">=</span>weapon&amp;league<span class="o">=</span>Heist&amp;lowConfidence<span class="o">=</span><span class="nb">true</span>
+</code></pre></div><h1 id='categories'>Categories</h1>
 <p>This endpoint is used to get all valid categories you can use for the other endpoints.</p>
 <div class="highlight"><pre class="highlight shell tab-shell"><code>    curl https://api.poe.watch/categories
 </code></pre></div><div class="highlight"><pre class="highlight go tab-go"><code><span class="k">import</span> <span class="n">poe</span> <span class="s">"github.com/mxrk/poewatch"</span>
@@ -655,7 +674,47 @@ Remember — you can also check data from old leagues. If you want to see which 
 <td>set the wanted league</td>
 </tr>
 </tbody></table>
-<h1 id='compact'>Compact</h1>
+<h1 id='corruptions'>Corruptions</h1>
+<p>You can query for a list of corruption prices for a specific ID.</p>
+<h3 id='http-request-7'>HTTP Request</h3>
+<p><code>GET https://api.poe.watch/corruptions?id=155&amp;league=Ritual</code></p>
+<h3 id='query-parameters-5'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>int</td>
+<td>wanted item id</td>
+</tr>
+<tr>
+<td>league</td>
+<td>string</td>
+<td>set the wanted league</td>
+</tr>
+</tbody></table>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>    curl https://api.poe.watch/corruptions?id<span class="o">=</span>155&amp;league<span class="o">=</span>Ritual
+</code></pre></div>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#% increased Area of Effect"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"mean"</span><span class="p">:</span><span class="w"> </span><span class="mf">8511.44</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#% increased Attack Speed during any Flask Effect"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"mean"</span><span class="p">:</span><span class="w"> </span><span class="mf">9892.36</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+  </span><span class="err">...</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div><h1 id='compact'>Compact</h1>
 <p>Returns a compact data from all &quot;get?&quot; endpoints combined.</p>
 <div class="highlight"><pre class="highlight shell tab-shell"><code>    curl https://api.poe.watch/compact?league<span class="o">=</span>Heist
 </code></pre></div>
@@ -705,9 +764,9 @@ Remember — you can also check data from old leagues. If you want to see which 
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-7'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-8'>HTTP Request</h3>
 <p><code>GET https://api.poe.watch/compact?league=Heist</code></p>
-<h3 id='query-parameters-5'>Query Parameters</h3>
+<h3 id='query-parameters-6'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -733,14 +792,10 @@ Remember — you can also check data from old leagues. If you want to see which 
   </span><span class="nl">"requestedStashes"</span><span class="p">:</span><span class="w"> </span><span class="mi">31739</span><span class="p">,</span><span class="w">
   </span><span class="nl">"computedStashes"</span><span class="p">:</span><span class="w"> </span><span class="mi">31736</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-8'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-9'>HTTP Request</h3>
 <p><code>GET https://api.poe.watch/status</code></p>
 <h1 id='errors'>Errors</h1>
-<aside class="notice">
-This error section is stored in a separate file in <code>includes/_errors.md</code>. Slate allows you to optionally separate out your docs into many files...just save them to the <code>includes</code> folder and add them to the top of your <code>index.md</code>'s frontmatter. Files are included in the order listed.
-</aside>
-
-<p>The Kittn API uses the following error codes:</p>
+<p>The poe.watch API uses the following error codes:</p>
 
 <table><thead>
 <tr>
@@ -753,36 +808,20 @@ This error section is stored in a separate file in <code>includes/_errors.md</co
 <td>Bad Request -- Your request is invalid.</td>
 </tr>
 <tr>
-<td>401</td>
-<td>Unauthorized -- Your API key is wrong.</td>
-</tr>
-<tr>
 <td>403</td>
-<td>Forbidden -- The kitten requested is hidden for administrators only.</td>
+<td>Forbidden -- Seems like you aren&#39;t allowed here.</td>
 </tr>
 <tr>
 <td>404</td>
-<td>Not Found -- The specified kitten could not be found.</td>
+<td>Not Found -- The specified id could not be found.</td>
 </tr>
 <tr>
 <td>405</td>
-<td>Method Not Allowed -- You tried to access a kitten with an invalid method.</td>
+<td>Method Not Allowed -- You tried to access the API with an invalid method.</td>
 </tr>
 <tr>
 <td>406</td>
 <td>Not Acceptable -- You requested a format that isn&#39;t json.</td>
-</tr>
-<tr>
-<td>410</td>
-<td>Gone -- The kitten requested has been removed from our servers.</td>
-</tr>
-<tr>
-<td>418</td>
-<td>I&#39;m a teapot.</td>
-</tr>
-<tr>
-<td>429</td>
-<td>Too Many Requests -- You&#39;re requesting too many kittens! Slow down!</td>
 </tr>
 <tr>
 <td>500</td>
