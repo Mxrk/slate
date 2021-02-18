@@ -321,6 +321,7 @@ Parameter | Type | Description
 id | int | wanted item id
 league | string | set the wanted league
 
+
 # Corruptions
 You can query for a list of corruption prices for a specific ID.
 
@@ -356,7 +357,6 @@ league | string | set the wanted league
   ...
 ]
 ```
-
 
 # Compact
 Returns a compact data from all "get?" endpoints combined.
